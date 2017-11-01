@@ -4,7 +4,7 @@ DEC: 22.1517
 
 ---------------------------
 SELECT
-  p.ra, p.dec
+  p.ra, p.dec, p.u, p.g, p.r, p.i, p.z
 FROM PhotoObjAll AS p
 WHERE
   p.ra BETWEEN 167.3708 AND 169.3708
