@@ -1,0 +1,14 @@
+file_name = data.dat
+rand_file_name = randoms.dat
+
+ra_col = 1
+ra_units = degrees
+dec_col = 2
+dec_units = degrees
+
+min_sep = .05
+max_sep = 20
+bin_size = .05
+sep_units = arcmin
+
+nn_file_name = autocorr.dat
