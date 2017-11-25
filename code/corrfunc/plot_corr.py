@@ -9,7 +9,10 @@ def main():
     plt.axhline(0.0, color='k')
     plt.xscale('log')
 
-    plt.show()
+    plt.ylabel(r'$\xi(r)$')
+    plt.xlabel(r'$r\;\;\mathrm{arcmin}$')
+
+    plt.savefig('correlationfunction.png')
 
     return
 
