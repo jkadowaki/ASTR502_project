@@ -1,2 +1,4 @@
 *.pyc
 code/corrfunc/randoms/
+.DS_STORE
+code/corrfunc/.idea/
