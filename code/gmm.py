@@ -5,7 +5,7 @@ from astroML.decorators import pickle_results
 from astroML.plotting.tools import draw_ellipse
 
 from astroML.density_estimation import XDGMM
-hdulist = fits.open('../git/ASTR502_project/data/sdss_fields/leo2.fits')
+hdulist = fits.open('../data/sdss_fields/leo2.fits')
 tbdata = hdulist[1].data
 cols = hdulist[1].columns
 ra=tbdata['ra']
