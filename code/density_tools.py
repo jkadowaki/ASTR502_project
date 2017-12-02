@@ -40,8 +40,7 @@ def density_peaks(dens, sigma_min, sigma_max,  xmin=0, xmax=1, ymin=0, ymax=1):
 
     TODO:
     -----
-    1. Fix axes ranges.
-    3. Allow to use more than 10 ticklabels in the colorbar
+    1. Allow to use more than 10 ticklabels in the colorbar
 
     """
     assert xmin < xmax, "xmax should be greater than xmin"
@@ -51,7 +50,7 @@ def density_peaks(dens, sigma_min, sigma_max,  xmin=0, xmax=1, ymin=0, ymax=1):
 
     # Defining grid
     x = np.linspace(xmin, xmax, np.shape(dens)[0])
-    y = np.linspace(xmin, xmax, np.shape(dens)[1])
+    y = np.linspace(ymin, ymax, np.shape(dens)[1])
     X, Y = np.meshgrid(x, y)
 
     # Defining sigma as the standard deviation of the data
