@@ -15,7 +15,7 @@ TODO:
 
 """
 
-def od_coordinates(dens, sigma_t, xmin=0, xmax=1, ymin=0, ymax=1)
+def od_coordinates(dens, sigma_t, xmin=0, xmax=1, ymin=0, ymax=1):
     assert xmin < xmax, "xmax should be greater than xmin"
     assert ymin < ymax, "ymax should be greater than ymin"
     assert sigma_max >0, "sigma_t should be larger than 0"
@@ -44,7 +44,7 @@ def od_coordinates(dens, sigma_t, xmin=0, xmax=1, ymin=0, ymax=1)
 
     return x_mean, y_mean
 
-def density_peaks(dens, sigma_min, sigma_max,  xmin=0, xmax=1, ymin=0, ymax=1):
+def density_peaks(dens, sigma_min, sigma_max, ax=None,  xmin=0, xmax=1, ymin=0, ymax=1):
     """
     Function to plot contours on densities:
 
@@ -93,7 +93,6 @@ def density_peaks(dens, sigma_min, sigma_max,  xmin=0, xmax=1, ymin=0, ymax=1):
     for i in range(sigma_min, sigma_max+1):
         overdensities.append(dens_median + i*sigma)
         color_bar_labels.append(str(i) + '$\sigma$')
-    print(color_bar_labels)
     # Creating contour plot:
     fig = plt.figure(figsize=(6, 6))
     plt.contourf(X, Y, dens, overdensities)
@@ -101,6 +100,9 @@ def density_peaks(dens, sigma_min, sigma_max,  xmin=0, xmax=1, ymin=0, ymax=1):
     cbar.ax.set_yticks(np.arange(0, len(color_bar_labels)+1, 1))
     cbar.ax.set_yticklabels(color_bar_labels)
     #fig.clf()
-
-    return fig
+    if ax is None:
+        ax = plt.gca()
+    bp = ax.boxplot(more_data)
+    return bp
+    #return fig
 
