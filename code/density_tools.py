@@ -15,6 +15,35 @@ TODO:
 
 """
 
+def od_coordinates(dens, sigma_t, xmin=0, xmax=1, ymin=0, ymax=1)
+    assert xmin < xmax, "xmax should be greater than xmin"
+    assert ymin < ymax, "ymax should be greater than ymin"
+    assert sigma_max >0, "sigma_t should be larger than 0"
+    assert type(sigma_max) == int, "sigma_t should be a integer"
+
+    # Defining grid
+    x = np.linspace(xmin, xmax, np.shape(dens)[0])
+    y = np.linspace(ymin, ymax, np.shape(dens)[1])
+    dx = x[1]-x[0]
+    dy = y[1]-y[0]
+    # Defining sigma as the standard deviation of the data
+    sigma = np.std(dens.flatten())
+    # Finding the median of the all the data in the field
+    dens_median = np.median(dens.flatten())
+    # Defining the contours range.·
+    overdensities = []
+    color_bar_labels = []
+
+    index = np.where(dens>(dens_median+sigma*sigma_t))
+
+    x_coord = index[0]*dx
+    y_coord = index[1]*dy
+
+    x_mean = np.sum(x_coord)/len(x_coord)
+    y_mean = np.sum(y_coord)/len(y_coord)
+
+    return x_mean, y_mean
+
 def density_peaks(dens, sigma_min, sigma_max,  xmin=0, xmax=1, ymin=0, ymax=1):
     """
     Function to plot contours on densities:
