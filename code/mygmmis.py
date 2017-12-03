@@ -150,7 +150,7 @@ if __name__ == '__main__':
     print "data",data.shape, cb(data)
     from numpy.random import RandomState
     # seed = 42
-    niter=3
+    niter=50
     centerlist=[]
     alphalist=[]
     alist=[]
